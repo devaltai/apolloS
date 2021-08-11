@@ -46,3 +46,15 @@ export const removeBook = (id) => {
   booksDB.delete(id)
   return {id, ...expectedBook}
 }
+
+export const updateBook = (id, receivedBook) => {
+  const previousBook = booksDB.get(id)
+  const expectedBook = {
+    ...previousBook,
+    ...receivedBook
+  }
+  removeBook(id)
+  booksDB.set(id, expectedBook)
+  const savedBook = booksDB.get(id)
+  return {id, ...savedBook}
+}

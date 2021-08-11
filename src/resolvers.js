@@ -1,4 +1,4 @@
-import {getBooks, getBookById, saveBook, removeBook} from "./modal"
+import {getBooks, getBookById, saveBook, removeBook, updateBook} from "./modal"
 
 export const resolvers = {
   Query: {
@@ -13,6 +13,9 @@ export const resolvers = {
     },
     removeBook: (_, {id}) => {
       return removeBook(id)
+    },
+    updateBook: (_, {id, book}) => {
+      return updateBook(id, book)
     },
   },
 }
