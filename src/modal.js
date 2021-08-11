@@ -1,3 +1,4 @@
+const {v1: generatId} = require("uuid")
 const initialDB = [
   [
     "ID-1",
@@ -33,9 +34,15 @@ export const getBookById = (id) => {
   return {id, ...book}
 }
 
-export const saveBook = (id, title, author) => {
-  const receivedBook = {title, author}
-  booksDB.set(id, receivedBook)
+export const saveBook = (book) => {
+  const id = generatId()
+  booksDB.set(id, book)
   const savedBook = booksDB.get(id)
   return {id, ...savedBook}
+}
+
+export const removeBook = (id) => {
+  const expectedBook = booksDB.get(id)
+  booksDB.delete(id)
+  return {id, ...expectedBook}
 }
