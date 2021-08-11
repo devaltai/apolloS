@@ -1,11 +1,15 @@
-import {getBooks, getBookById} from "./modal"
+import {getBooks, getBookById, saveBook} from "./modal"
 
 export const resolvers = {
   Query: {
     books: () => getBooks(),
     book: (_, {id}) => {
-      console.log(getBookById(id))
       return getBookById(id)
+    },
+  },
+  Mutation: {
+    addBook: (_, {id, title, author}) => {
+      return saveBook(id, title, author)
     },
   },
 }
