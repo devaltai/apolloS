@@ -1,10 +1,11 @@
 {
-  "name": "apolloS",
+  "name": "apollos",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-watch ./src/index.js"
+    "start": "babel-watch ./src/index.js",
+    "clean": "rm -rf ./node_modules/.cache/babel-loader"
   },
   "keywords": [],
   "author": "",
