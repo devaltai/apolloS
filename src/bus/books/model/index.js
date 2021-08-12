@@ -1,21 +1,7 @@
+//Core
 const {v1: generatId} = require("uuid")
-const initialDB = [
-  [
-    "ID-1",
-    {
-      title: "Harry Potter",
-      author: "J.K. Rowling",
-    },
-  ],
-  [
-    "ID-2",
-    {
-      title: "Jurassic Park",
-      author: "Michael Crichton",
-    },
-  ],
-]
-const booksDB = new Map(initialDB)
+
+import {booksDB} from "./db"
 
 export const getBooks = () => {
   const books = []
@@ -31,6 +17,9 @@ export const getBooks = () => {
 
 export const getBookById = (id) => {
   const book = booksDB.get(id)
+  if (!book) {
+    throw new Error(`We don't have a book with id: ${id}`)
+  }
   return {id, ...book}
 }
 
@@ -51,7 +40,7 @@ export const updateBook = (id, receivedBook) => {
   const previousBook = booksDB.get(id)
   const expectedBook = {
     ...previousBook,
-    ...receivedBook
+    ...receivedBook,
   }
   removeBook(id)
   booksDB.set(id, expectedBook)
