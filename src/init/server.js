@@ -2,8 +2,8 @@
 import express from "express"
 import {ApolloServer} from "apollo-server-express"
 
-//Schema
-import schema from "./schema.graphql"
+//Schema Types
+import schema from "./types.graphql"
 
 //Resolver
 import {resolvers} from "./resolvers"
