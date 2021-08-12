@@ -1,5 +1,5 @@
 //Core
-const {v1: generatId} = require("uuid")
+import {v1 as generatId} from "uuid"
 
 import {booksDB} from "./db"
 

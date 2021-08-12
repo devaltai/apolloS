@@ -12,15 +12,16 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
     "babel-plugin-import-graphql": "^2.8.1",
+    "babel-preset-latest-node": "^5.5.1",
     "babel-watch": "^7.5.0"
   },
   "dependencies": {
-    "apollo-server": "^3.1.2",
+    "@babel/runtime": "^7.15.3",
+    "apollo-datasource-rest": "^3.1.1",
     "apollo-server-express": "^2.25.2",
     "express": "^4.17.1",
-    "graphql": "^15.5.1",
     "uuid": "^8.3.2"
   }
 }
