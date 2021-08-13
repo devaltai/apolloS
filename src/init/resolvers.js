@@ -5,6 +5,7 @@ import {queries as usersQueries} from "../bus/users/queries"
 
 // Mutation
 import {mutations as booksMutations} from "../bus/books/mutations"
+import {mutations as usersMutations} from "../bus/users/mutations"
 
 export const resolvers = {
   Query: {
@@ -14,5 +15,6 @@ export const resolvers = {
   },
   Mutation: {
     ...booksMutations,
+    ...usersMutations,
   },
 }
