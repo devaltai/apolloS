@@ -1,4 +1,5 @@
 //Core
+import http from "http"
 import express from "express"
 import {ApolloServer} from "apollo-server-express"
 import session from "express-session"
@@ -44,5 +45,7 @@ const server = new ApolloServer({
 })
 
 server.applyMiddleware({app, cors: false})
+const httpServer = http.createServer(app)
+server.installSubscriptionHandlers(httpServer)
 
-export {server, app}
+export {server, httpServer, app}

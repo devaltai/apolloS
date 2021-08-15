@@ -1,11 +1,14 @@
 //Server
-import {server, app} from "./init/server"
+import {server, httpServer} from "./init/server"
 
 //Config
 import {PORT} from "./init/config"
 
-app.listen({port: PORT}, () =>
+httpServer.listen(PORT, () => {
   console.log(
     `🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
   )
-)
+  console.log(
+    `🚀 Subscriptions ready at ws://localhost:${PORT}${server.subscriptionsPath}`
+  )
+})

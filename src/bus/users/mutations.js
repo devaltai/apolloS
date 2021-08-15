@@ -8,9 +8,15 @@ import {db} from "./db"
 //Secret
 import {USER_SECRET} from "../../init/config"
 
+import {pubSub} from "../../init/pubSub"
+import {events} from "./events"
+
 export const mutations = {
   signUp: (_, user) => {
     db.push(user)
+    pubSub.publish(events.USER_ADDED, {
+      userAdded: user,
+    })
     return user
   },
   login: (_, {name, password}, ctx) => {
