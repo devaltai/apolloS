@@ -14,7 +14,7 @@ import {readToken} from "./readToken"
 import schema from "./types.graphql"
 
 //Resolver
-import {resolvers} from "./resolvers"
+import {resolvers} from "../resolvers"
 
 // API
 import {api as starshipsAPI} from "../bus/starships/dataSource"
