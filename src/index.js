@@ -1,14 +1,15 @@
 //Server
-import {server, httpServer} from "./init/server"
+import {apolloServer, server} from "./init/server"
+
+//Endpoints
+const {graphqlPath, subscriptionsPath} = apolloServer
 
 //Config
 import {PORT} from "./init/config"
 
-httpServer.listen(PORT, () => {
+server.listen(PORT, () => {
+  console.log(`🚀 Server ready at http://localhost:${PORT}${graphqlPath}`)
   console.log(
-    `🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
-  )
-  console.log(
-    `🚀 Subscriptions ready at ws://localhost:${PORT}${server.subscriptionsPath}`
+    `🚀 Subscriptions ready at ws://localhost:${PORT}${subscriptionsPath}`
   )
 })
