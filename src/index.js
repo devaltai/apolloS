@@ -1,8 +1,8 @@
 //Server
-import {apolloServer, server} from "./init/server"
+import {server} from "./init/server"
 
 //Endpoints
-const {graphqlPath, subscriptionsPath} = apolloServer
+import {graphqlPath, subscriptionsPath} from "./init/apolloServer"
 
 //Config
 import {PORT} from "./init/config"
